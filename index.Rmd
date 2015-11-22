@@ -1,0 +1,167 @@
+---
+title: "Razões em obras de arte"
+author: "Allan Inocêncio de Souza Costa"
+date: "22 de novembro de 2015"
+output:
+  html_document:
+    theme: spacelab
+    toc: true
+---
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='img/',
+                      echo=FALSE, warning=FALSE, message=FALSE, encoding = "utf-8")
+```
+
+```{r}
+source("paintings.R")
+```
+
+## Introdução
+
+Neste trabalho investigamos a razão entre as dimensões de telas de diversos artistas.
+
+Conforme observado pelo professor [José Antônio Salvador](http://www.dm.ufscar.br/profs/salvador/),
+as médias dessas razões para diferentes artistas, em geral, não parecem se aproximar da reverenciada
+[razão áurea](http://www.wikiwand.com/en/Golden_ratio), sendo talvez melhor estimadas pelo
+[número plástico](https://www.wikiwand.com/en/Plastic_number).
+
+Utilizamos nesse estudo empírico uma [base de dados online](http://www.wga.hu/frames-e.html?/database/download/)
+consistindo de um arquivo no formato `xls` que pode ser aberto em qualquer software
+que trabalhe com planilhas, como LibreOffice Calc ou Excel. Optamos por utilizar
+o software [R](https://www.r-project.org/) para a análise dos dados.
+
+Seguimos o seguinte roteiro simplificado:
+
+O código fonte com os scripts utilizados para o processsamento dos dados e a criação dessa página está disponível [nesse repositório](https://github.com/allanino/razoes-obras-de-arte).
+
+## Resultados
+
+Apresentamos os resultados na forma de histogramas anotados com a razão média, o número plástico e a razão áurea.
+
+Observamos médias relativamente próximas do número plástico para artistas como Rembrandt, van Gogh, Monet e Degas. Adicionamos alguns comentários específicos para cada histograma quando achamos pertinente.
+
+Primeiro mostramos um histragrama com todas as obras de todos os artistas, após o que apresentamos histogramas de alguns artistas selecionado entre aqueles com maior quantidade de obras na base de dados.
+
+### Todos os artistas
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("all")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+Observe como obtemos uma grande concentração de valores ao redor do pico em 1,25. Em contrapartida, não temos um pico próximo à razão áurea.
+
+### Harmenszoon van Rijn Rembrandt
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("REMBRANDT Harmenszoon van Rijn")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+### Vincent van Gogh
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("GOGH, Vincent van")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+### Albrecht Dürer
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("D\xdcRER, Albrecht")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+### El Greco
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("GRECO, El")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+### Claude Monet
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("MONET, Claude")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+### Lucas the Elcer Cranach
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("CRANACH, Lucas the Elder")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+### Francisco de Goya y Lucientes
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("GOYA Y LUCIENTES, Francisco de")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+### Paul Gaughin
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("GAUGUIN, Paul")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+### Edgar Degas
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("DEGAS, Edgar")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+### Sandro Botticelli
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("BOTTICELLI, Sandro")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
+
+Temos aqui um artista que aparentemente utilizou a razão áurea no dimensionamento de suas obras.
+
+### Caravaggio
+
+```{r echo=FALSE, results="hide"}
+summary <- compute_summary("CARAVAGGIO")
+```
+
+```{r, dpi=200, fig.width=8, fig.height=6}
+create_histogram(summary)
+```
