@@ -32,6 +32,12 @@ o software [R](https://www.r-project.org/) para a análise dos dados.
 
 Seguimos o seguinte roteiro simplificado:
 
+1. Pré-processamos os dados e excluímos obras que não possuem informação sobre suas dimensões ou que apresentam tais informações corrompidas.
+2. Extraímos as duas dimensões das obras (largura e altura).
+3. Calculamos a razão entre as dimensões, sempre considerando a divisão da maior dimensão pela menor.
+4. Ignoramos obras com razões maiores que 4.0, uma vez que constatamos que a maioria das obras nessas condições apresentam inconsistências em seus dados, tais como espaços extras que dificultam a extração das dimensões.
+5. Calculamos histogramas das razões para facilitar a visualização.
+
 O código fonte com os scripts utilizados para o processsamento dos dados e a criação dessa página está disponível [nesse repositório](https://github.com/allanino/razoes-obras-de-arte).
 
 ## Resultados

@@ -92,6 +92,13 @@ img {
 <p>Conforme observado pelo professor <a href="http://www.dm.ufscar.br/profs/salvador/">José Antônio Salvador</a>, as médias dessas razões para diferentes artistas, em geral, não parecem se aproximar da reverenciada <a href="http://www.wikiwand.com/en/Golden_ratio">razão áurea</a>, sendo talvez melhor estimadas pelo <a href="https://www.wikiwand.com/en/Plastic_number">número plástico</a>.</p>
 <p>Utilizamos nesse estudo empírico uma <a href="http://www.wga.hu/frames-e.html?/database/download/">base de dados online</a> consistindo de um arquivo no formato <code>xls</code> que pode ser aberto em qualquer software que trabalhe com planilhas, como LibreOffice Calc ou Excel. Optamos por utilizar o software <a href="https://www.r-project.org/">R</a> para a análise dos dados.</p>
 <p>Seguimos o seguinte roteiro simplificado:</p>
+<ol style="list-style-type: decimal">
+<li>Pré-processamos os dados e excluímos obras que não possuem informação sobre suas dimensões ou que apresentam tais informações corrompidas.</li>
+<li>Extraímos as duas dimensões das obras (largura e altura).</li>
+<li>Calculamos a razão entre as dimensões, sempre considerando a divisão da maior dimensão pela menor.</li>
+<li>Ignoramos obras com razões maiores que 4.0, uma vez que constatamos que a maioria das obras nessas condições apresentam inconsistências em seus dados, tais como espaços extras que dificultam a extração das dimensões.</li>
+<li>Calculamos histogramas das razões para facilitar a visualização.</li>
+</ol>
 <p>O código fonte com os scripts utilizados para o processsamento dos dados e a criação dessa página está disponível <a href="https://github.com/allanino/razoes-obras-de-arte">nesse repositório</a>.</p>
 </div>
 <div id="resultados" class="section level2">
